@@ -1,13 +1,13 @@
-package springbootstudy.controller;
+package myfirstspring.controller;
 
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import springbootstudy.entity.Member;
-import springbootstudy.entity.MemberForm;
-import springbootstudy.service.MemberService;
+import myfirstspring.entity.Member;
+import myfirstspring.entity.MemberForm;
+import myfirstspring.service.MemberService;
 
 @Controller
 public class MemberController {

@@ -1,8 +1,7 @@
-package springbootstudy.repository;
+package myfirstspring.repository;
 
 import java.util.ArrayList;
-import org.springframework.stereotype.Repository;
-import springbootstudy.entity.Member;
+import myfirstspring.entity.Member;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
-package springbootstudy.controller;
+package myfirstspring.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

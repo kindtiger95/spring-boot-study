@@ -1,6 +1,6 @@
-package springbootstudy.repository;
+package myfirstspring.repository;
 
-import springbootstudy.entity.Member;
+import myfirstspring.entity.Member;
 
 import java.util.List;
 import java.util.Optional;

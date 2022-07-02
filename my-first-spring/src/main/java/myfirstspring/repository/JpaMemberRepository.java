@@ -1,9 +1,9 @@
-package springbootstudy.repository;
+package myfirstspring.repository;
 
 import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
-import springbootstudy.entity.Member;
+import myfirstspring.entity.Member;
 
 public class JpaMemberRepository implements MemberRepository {
 

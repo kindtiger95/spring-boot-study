@@ -1,4 +1,4 @@
-package springbootstudy.entity;
+package myfirstspring.entity;
 
 public class MemberForm {
     private String name;

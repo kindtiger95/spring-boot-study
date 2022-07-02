@@ -1,4 +1,4 @@
-package springbootstudy;
+package myfirstspring;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
-import springbootstudy.entity.Member;
-import springbootstudy.repository.MemberRepository;
-import springbootstudy.service.MemberService;
+import myfirstspring.entity.Member;
+import myfirstspring.repository.MemberRepository;
+import myfirstspring.service.MemberService;
 
 @SpringBootTest
 @Transactional

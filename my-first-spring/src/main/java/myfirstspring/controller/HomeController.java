@@ -1,8 +1,8 @@
-package springbootstudy.controller;
+package myfirstspring.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import springbootstudy.service.MemberService;
+import myfirstspring.service.MemberService;
 
 @Controller
 public class HomeController {

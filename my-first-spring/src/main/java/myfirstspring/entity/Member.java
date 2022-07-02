@@ -1,4 +1,4 @@
-package springbootstudy.entity;
+package myfirstspring.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

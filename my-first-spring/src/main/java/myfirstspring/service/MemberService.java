@@ -1,10 +1,10 @@
-package springbootstudy.service;
+package myfirstspring.service;
 
 import java.util.List;
 import java.util.Optional;
 import org.springframework.transaction.annotation.Transactional;
-import springbootstudy.entity.Member;
-import springbootstudy.repository.MemberRepository;
+import myfirstspring.entity.Member;
+import myfirstspring.repository.MemberRepository;
 
 @Transactional
 public class MemberService {

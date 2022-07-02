@@ -1,12 +1,10 @@
-package springbootstudy;
+package myfirstspring;
 
 import javax.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springbootstudy.repository.JpaMemberRepository;
-import springbootstudy.repository.MemberRepository;
-import springbootstudy.repository.MemoryMemberRepository;
-import springbootstudy.service.MemberService;
+import myfirstspring.repository.*;
+import myfirstspring.service.MemberService;
 
 @Configuration
 public class SpringConfig {

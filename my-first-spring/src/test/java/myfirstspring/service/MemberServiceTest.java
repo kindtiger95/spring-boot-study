@@ -1,4 +1,4 @@
-package springbootstudy.service;
+package myfirstspring.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
@@ -6,8 +6,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import springbootstudy.entity.Member;
-import springbootstudy.repository.MemoryMemberRepository;
+import myfirstspring.entity.Member;
+import myfirstspring.repository.MemoryMemberRepository;
 
 class MemberServiceTest {
 
