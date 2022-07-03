@@ -9,7 +9,7 @@ import springbasicpractice.repositories.MemberRepository;
 import springbasicpractice.services.OrderService;
 import springbasicpractice.services.discount.DiscountPolicy;
 
-@Component("orderService")
+@Component("orderServiceImpl")
 public class OrderServiceImpl implements OrderService {
     private MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;
