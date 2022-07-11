@@ -5,16 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "item")
 public class Item {
     public Item() {}
 
-    @Id
-    @GeneratedValue
-    @Column(name = "item_id")
+    @Id @GeneratedValue
+    @Column(name = "id")
     private Long id;
     private String name;
     private int price;
+
+    @Column(name = "stock_quantity")
     private int stockQuantity;
 
     public Long getId() {

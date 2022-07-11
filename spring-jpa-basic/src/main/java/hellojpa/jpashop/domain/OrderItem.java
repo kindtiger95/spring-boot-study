@@ -1,66 +1,24 @@
 package hellojpa.jpashop.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "order_item")
 public class OrderItem {
-    public OrderItem() {
-    }
+    public OrderItem() {}
 
-    @Id
-    @GeneratedValue
-    @Column(name = "order_item_id")
+    @Id @GeneratedValue
     private Long id;
 
-    @Column(name = "order_id")
-    private Long orderId;
-
-    @Column(name = "item_id")
-    private Long itemId;
-
+    @Column(name = "order_price")
     private int orderPrice;
+
     private int count;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Long getItemId() {
-        return itemId;
-    }
-
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
-    }
-
-    public int getOrderPrice() {
-        return orderPrice;
-    }
-
-    public void setOrderPrice(int orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
+    @ManyToOne
+    @JoinColumn(name = "item_id")
+    private Item item;
 }

@@ -2,17 +2,20 @@ package hellojpa.jpashop.domain;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "member")
 public class Member {
     public Member() {}
 
-    @Id
-    @GeneratedValue
-    @Column(name = "member_id")
+    @Id @GeneratedValue
+    @Column(name = "id")
     private Long id;
+
     private String name;
+
     private String city;
+
     private String street;
+
     private String zipcode;
 
     public Long getId() {
