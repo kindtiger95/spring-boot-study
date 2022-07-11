@@ -8,7 +8,6 @@ import javax.annotation.PreDestroy;
 import java.util.UUID;
 
 @Component
-@Scope(value = "request")
 public class MyLogger {
     private String uuid;
     private String requestURL;

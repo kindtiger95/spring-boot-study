@@ -2,6 +2,7 @@ package springbasicpractice.services.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springbasicpractice.commons.Member;
 import springbasicpractice.commons.Order;
@@ -9,7 +10,8 @@ import springbasicpractice.repositories.MemberRepository;
 import springbasicpractice.services.OrderService;
 import springbasicpractice.services.discount.DiscountPolicy;
 
-@Component("orderServiceImpl")
+@Primary
+@Component
 public class OrderServiceImpl implements OrderService {
     private MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;

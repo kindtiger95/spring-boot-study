@@ -2,12 +2,14 @@ package myfirstspring.repository;
 
 import java.util.ArrayList;
 import myfirstspring.entity.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();

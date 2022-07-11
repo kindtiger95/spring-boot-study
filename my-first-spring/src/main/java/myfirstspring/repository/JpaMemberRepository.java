@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityManager;
 import myfirstspring.entity.Member;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Repository;
 
+@Primary
+@Repository
 public class JpaMemberRepository implements MemberRepository {
 
     private final EntityManager entityManager;

@@ -1,3 +1,4 @@
+/*
 package myfirstspring;
 
 import javax.persistence.EntityManager;
@@ -25,3 +26,4 @@ public class SpringConfig {
         return new JpaMemberRepository(entityManager);
     }
 }
+*/

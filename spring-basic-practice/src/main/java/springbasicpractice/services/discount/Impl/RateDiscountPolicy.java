@@ -1,11 +1,13 @@
 package springbasicpractice.services.discount.Impl;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 import springbasicpractice.commons.Grade;
 import springbasicpractice.commons.Member;
 import springbasicpractice.services.discount.DiscountPolicy;
 
-@Component("discountPolicy")
+@Primary
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
     private final int discountPercent = 10;
 
