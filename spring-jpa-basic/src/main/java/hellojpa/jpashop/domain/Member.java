@@ -1,12 +1,13 @@
 package hellojpa.jpashop.domain;
 
+import java.time.LocalDateTime;
 import javax.persistence.*;
 
 @Entity(name = "member")
 public class Member {
     public Member() {}
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -17,6 +18,9 @@ public class Member {
     private String street;
 
     private String zipcode;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     public Long getId() {
         return id;
