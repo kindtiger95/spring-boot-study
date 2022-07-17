@@ -3,29 +3,18 @@ package hellojpa.jpashop.domain;
 import javax.persistence.*;
 
 @Entity(name = "delivery")
-public class Delivery {
+public class Delivery extends BaseEntity {
     public Delivery() {
     }
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @OneToOne(mappedBy = "delivery")
     private Order order;
+    private String street;
+    private String zipcode;
+    private String city;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
-
-    private String street;
-    private String zipcode;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Order getOrder() {
         return order;
@@ -49,6 +38,14 @@ public class Delivery {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public OrderStatus getStatus() {
