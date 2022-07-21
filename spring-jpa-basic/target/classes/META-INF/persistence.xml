@@ -7,8 +7,8 @@
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="nvidia"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:13306/test"/>
+            <property name="javax.persistence.jdbc.password" value="ibjang123"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:23306/test"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
 
             <!-- 옵션 -->

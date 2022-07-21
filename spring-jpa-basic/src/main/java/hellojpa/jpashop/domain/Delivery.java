@@ -9,9 +9,9 @@ public class Delivery extends BaseEntity {
 
     @OneToOne(mappedBy = "delivery")
     private Order order;
-    private String street;
-    private String zipcode;
-    private String city;
+
+    @Embedded
+    private Address address;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -24,28 +24,12 @@ public class Delivery extends BaseEntity {
         this.order = order;
     }
 
-    public String getStreet() {
-        return street;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public OrderStatus getStatus() {

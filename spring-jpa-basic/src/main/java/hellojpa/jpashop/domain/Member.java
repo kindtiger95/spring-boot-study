@@ -8,10 +8,12 @@ import javax.persistence.*;
 public class Member extends BaseEntity {
     public Member() {}
 
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
+
+    @Embedded
+    private Address address;
 
     @OneToMany(mappedBy = "member")
     List<Order> orders = new ArrayList<>();
@@ -24,28 +26,20 @@ public class Member extends BaseEntity {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public Long getId() {
+        return id;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getStreet() {
-        return street;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public List<Order> getOrders() {

@@ -1,10 +1,12 @@
 package hellojpa;
 
-import hellojpa.jpashop.domain.Book;
 import hellojpa.jpashop.domain.Member;
 
-import java.util.List;
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -13,10 +15,9 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-            Book book = new Book();
-            book.setAuthor("Inbeom");
-
-            em.persist(book);
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Member> query = cb.createQuery(Member.class);
+            Root<Member> from = query.from(Member.class);
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
