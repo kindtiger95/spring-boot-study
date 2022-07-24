@@ -11,6 +11,7 @@
 
     <modules>
         <module>lec02</module>
+        <module>lec03</module>
     </modules>
 
     <properties>
