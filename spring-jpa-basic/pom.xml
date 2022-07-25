@@ -10,11 +10,8 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>lec02</module>
-        <module>lec03</module>
-        <module>lec04</module>
-        <module>lec05</module>
-        <module>lec06</module>
+        <module>lec07</module>
+        <module>lec08</module>
     </modules>
 
     <properties>
