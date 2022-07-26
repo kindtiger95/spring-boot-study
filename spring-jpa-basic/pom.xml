@@ -12,6 +12,7 @@
     <modules>
         <module>lec07</module>
         <module>lec08</module>
+        <module>lec09</module>
     </modules>
 
     <properties>
