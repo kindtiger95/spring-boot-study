@@ -52,6 +52,16 @@ public class Main {
             });
             */
 
+            /** 조인 **/
+            /*
+            String query4 = "SELECT m FROM Member as m INNER JOIN m.orders as o";
+            List<Member> resultList = em.createQuery(query4, Member.class).getResultList();
+            resultList.forEach((member) -> {
+                System.out.println("member.getName() = " + member.getName());
+                System.out.println("member.getOrders().get(0).toString() = " + member.getOrders().get(0).toString());
+            });
+            */
+
             tx.commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());

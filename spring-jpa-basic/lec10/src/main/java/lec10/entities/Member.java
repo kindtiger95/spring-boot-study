@@ -57,4 +57,7 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member")
     private List<Orders> orders = new ArrayList<>();
 
+    public List<Orders> getOrders() {
+        return orders;
+    }
 }

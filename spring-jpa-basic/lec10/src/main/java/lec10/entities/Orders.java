@@ -32,4 +32,13 @@ public class Orders extends BaseEntity {
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "orderDate=" + orderDate +
+                ", orderStatus=" + orderStatus +
+                ", delivery=" + delivery +
+                ", orderItems=" + orderItems +
+                '}';
+    }
 }
