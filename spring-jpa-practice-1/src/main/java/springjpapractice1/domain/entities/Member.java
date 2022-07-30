@@ -1,24 +1,27 @@
-package springjpapractice1.domain;
+package springjpapractice1.domain.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Builder
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
-    @Embedded
-    private Address address;
+    @Embedded private Address address;
 
     @OneToMany(mappedBy = "member")
-    private List<Order> orders = new ArrayList<>();
+    List<Order> orders = new ArrayList<>();
 }
