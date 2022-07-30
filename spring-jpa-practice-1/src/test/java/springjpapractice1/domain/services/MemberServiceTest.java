@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import springjpapractice1.domain.entities.Member;
-import springjpapractice1.domain.repositories.MemberRepository;
+import springjpapractice1.repositories.MemberRepository;
+import springjpapractice1.services.MemberService;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -13,7 +14,8 @@ import static org.assertj.core.api.Assertions.*;
 @Transactional
 class MemberServiceTest {
 
-    @Autowired MemberService memberService;
+    @Autowired
+    MemberService memberService;
     @Autowired MemberRepository memberRepository;
 
     @Test

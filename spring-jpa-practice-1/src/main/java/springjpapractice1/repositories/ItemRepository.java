@@ -1,4 +1,4 @@
-package springjpapractice1.domain.repositories;
+package springjpapractice1.repositories;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

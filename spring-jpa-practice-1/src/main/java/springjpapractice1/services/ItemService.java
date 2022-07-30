@@ -1,10 +1,10 @@
-package springjpapractice1.domain.services;
+package springjpapractice1.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import springjpapractice1.domain.entities.Item;
-import springjpapractice1.domain.repositories.ItemRepository;
+import springjpapractice1.repositories.ItemRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;

@@ -7,13 +7,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
-import static springjpapractice1.commons.GlobalEnums.*;
+import static javax.persistence.FetchType.LAZY;
+import static lombok.AccessLevel.PROTECTED;
+import static springjpapractice1.commons.GlobalEnums.DeliveryStatus;
 
 @Entity
 @Builder
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor
 public class Delivery {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
