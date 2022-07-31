@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import springjpapractice1.domain.entities.Order;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor

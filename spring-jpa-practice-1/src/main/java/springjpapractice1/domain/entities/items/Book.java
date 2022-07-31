@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 @Entity
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
+@Setter
 @Getter
 @DiscriminatorValue("book")
 public class Book extends Item {
