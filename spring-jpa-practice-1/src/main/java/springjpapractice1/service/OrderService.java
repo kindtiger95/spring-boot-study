@@ -3,15 +3,12 @@ package springjpapractice1.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import springjpapractice1.domain.Delivery;
-import springjpapractice1.domain.DeliveryStatus;
-import springjpapractice1.domain.Item;
-import springjpapractice1.domain.Member;
-import springjpapractice1.domain.Order;
-import springjpapractice1.domain.OrderItem;
+import springjpapractice1.domain.*;
 import springjpapractice1.repository.ItemRepository;
 import springjpapractice1.repository.MemberRepository;
 import springjpapractice1.repository.OrderRepository;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -42,7 +39,7 @@ public class OrderService {
         order.cancel();
     }
 
-    /* public List<Order> findOrders(OrderSearch orderSearch) {
+    public List<Order> findOrders(OrderSearch orderSearch) {
         return this.orderRepository.findAll(orderSearch);
-    }*/
+    }
 }

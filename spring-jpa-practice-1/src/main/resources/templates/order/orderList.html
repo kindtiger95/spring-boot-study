@@ -15,7 +15,7 @@ control" placeholder="회원명"/>
           <select th:field="*{orderStatus}" class="form-control">
             <option value="">주문상태</option>
             <option th:each=
-                            "status : ${T(springjpapractice1.commons.GlobalEnums.OrderStatus).values()}"
+                            "status : ${T(springjpapractice1.domain.OrderStatus).values()}"
                     th:value="${status}"
                     th:text="${status}">option
             </option>
