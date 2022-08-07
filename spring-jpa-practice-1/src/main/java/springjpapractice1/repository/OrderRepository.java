@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.BatchSize;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 import springjpapractice1.domain.Order;
@@ -58,5 +59,33 @@ public class OrderRepository {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
         return query.getResultList();
+    }
+
+    public List<Order> findAll() {
+        String query = "SELECT o FROM Order o " +
+                "JOIN FETCH o.member m " +
+                "JOIN FETCH o.delivery d";
+        return this.em.createQuery(query, Order.class)
+                      .getResultList();
+    }
+
+    public List<Order> findAllWithOrderItems() {
+        String query = "SELECT DISTINCT o FROM Order o " +
+                "JOIN FETCH o.member m " +
+                "JOIN FETCH o.delivery d " +
+                "JOIN FETCH o.orderItems oi " +
+                "JOIN FETCH oi.item i";
+        return this.em.createQuery(query, Order.class)
+                      .getResultList();
+    }
+
+    public List<Order> findAllWithBatchSize(int offset, int limit) {
+        String query = "SELECT o FROM Order o " +
+                "JOIN FETCH o.member m " +
+                "JOIN FETCH o.delivery d";
+        return this.em.createQuery(query, Order.class)
+                      .setFirstResult(offset)
+                      .setMaxResults(limit)
+                      .getResultList();
     }
 }
