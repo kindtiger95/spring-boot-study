@@ -1,3 +1,6 @@
 rootProject.name = 'jpa-study'
 
 include 'basic'
+include 'basic:lec07'
+findProject(':basic:lec07')?.name = 'lec07'
+

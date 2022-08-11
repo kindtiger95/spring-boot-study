@@ -26,14 +26,14 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.6.9.Final</version>
+            <version>5.6.10.Final</version>
         </dependency>
 
         <!-- Mysql 데이터베이스 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.29</version>
+            <version>8.0.30</version>
         </dependency>
     </dependencies>
 </project>
