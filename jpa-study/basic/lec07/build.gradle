@@ -1,11 +1,2 @@
 group = 'jpa.study.basic.lec07'
 version = '0.0.1'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation 'org.hibernate:hibernate-entitymanager:5.6.10.Final'
-    implementation 'mysql:mysql-connector-java:8.0.30'
-}

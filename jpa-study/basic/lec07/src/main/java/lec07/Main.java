@@ -1,6 +1,6 @@
 package lec07;
 
-import lec07.entity.Book;
+import lec07.entities.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
