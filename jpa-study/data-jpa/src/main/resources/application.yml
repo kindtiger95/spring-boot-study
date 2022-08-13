@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:23306/test?characterEncoding=utf8
+    username: root
+    password: ibjang123
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+#        default_batch_fetch_size: 500
+logging.level:
+   org.hibernate.SQL: debug
+#  org.hibernate.type: trace #파라미터 볼 수 있도록 해준다.
