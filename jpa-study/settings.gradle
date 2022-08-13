@@ -9,4 +9,5 @@ include 'basic:lec09'
 findProject(':basic:lec09')?.name = 'lec09'
 include 'basic:lec10'
 findProject(':basic:lec10')?.name = 'lec10'
+include 'practice'
 
