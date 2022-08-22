@@ -1,5 +1,7 @@
 package datajpa.repository;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import datajpa.entity.Member;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -61,5 +63,18 @@ class MemberJpaRepositoryTest {
         long deletedCount = this.memberJpaRepository.count();
         Assertions.assertThat(deletedCount)
                   .isEqualTo(0);
+    }
+
+    @Test
+    public void findByUsernameAndAgeGreaterThan() {
+        Member m1 = new Member("AAA", 10);
+        Member m2 = new Member("AAA", 20);
+        this.memberJpaRepository.save(m1);
+        this.memberJpaRepository.save(m2);
+
+        List<Member> result = this.memberJpaRepository.findByUsernameAndAgeGreaterThan("AAA", 15);
+        assertThat(result.get(0).getUsername()).isEqualTo("AAA");
+        assertThat(result.get(0).getAge()).isEqualTo(20);
+        assertThat(result.size()).isEqualTo(1);
     }
 }

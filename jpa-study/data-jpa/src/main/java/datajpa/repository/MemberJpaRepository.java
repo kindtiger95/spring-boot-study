@@ -11,6 +11,7 @@ import java.util.Optional;
 @Repository
 @RequiredArgsConstructor
 public class MemberJpaRepository {
+
     private final EntityManager entityManager;
 
     public Member save(Member member) {
@@ -24,7 +25,8 @@ public class MemberJpaRepository {
 
     public List<Member> findAll() {
         String query = "SELECT m FROM Member AS m";
-        return this.entityManager.createQuery(query, Member.class).getResultList();
+        return this.entityManager.createQuery(query, Member.class)
+                                 .getResultList();
     }
 
     public Optional<Member> findById(Long id) {
@@ -35,11 +37,36 @@ public class MemberJpaRepository {
     public long count() {
         String query = "SELECT COUNT(m) FROM Member AS m";
         return this.entityManager.createQuery(query, Long.class)
-                                              .getSingleResult();
+                                 .getSingleResult();
     }
 
     public Member find(Long id) {
         return this.entityManager.find(Member.class, id);
+    }
+
+    public List<Member> findByUsernameAndAgeGreaterThan(String username, int age) {
+        String query = "SELECT m FROM Member AS m WHERE m.username = :username and m.age > :age";
+        return this.entityManager.createQuery(query, Member.class)
+                                 .setParameter("username", username)
+                                 .setParameter("age", age)
+                                 .getResultList();
+    }
+
+    // 기본 JPA 페이징 처리
+    public List<Member> findByPage(int age, int offset, int limit) {
+        String query = "SELECT m FROM Member AS m WHERE m.age = :age ORDER BY m.username DESC";
+        return this.entityManager.createQuery(query, Member.class)
+                                 .setParameter("age", age)
+                                 .setFirstResult(offset)
+                                 .setMaxResults(limit)
+                                 .getResultList();
+    }
+
+    public Long totalCount(int age) {
+        String query = "SELECT COUNT(m) FROM Member AS m WHERE m.age = :age";
+        return this.entityManager.createQuery(query, Long.class)
+                                 .setParameter("age", age)
+                                 .getSingleResult();
     }
 
 }
