@@ -68,5 +68,4 @@ public class MemberJpaRepository {
                                  .setParameter("age", age)
                                  .getSingleResult();
     }
-
 }

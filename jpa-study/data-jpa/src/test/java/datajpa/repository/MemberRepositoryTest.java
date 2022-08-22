@@ -5,6 +5,10 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -74,12 +78,35 @@ class MemberRepositoryTest {
     }
 
     @Test
-    public void noOptionalTest() {
+    public void 옵셔널과비옵셔널비교() {
         Member m1 = new Member("AAA");
         this.memberRepository.save(m1);
 
         Optional<Member> optionalMember = this.memberRepository.findById(1L);
         Member noOptionalMember = this.memberRepository.findNoOptionalById(1L);
         assertThat(noOptionalMember).isEqualTo(optionalMember.get());
+    }
+
+    @Test
+    public void 페이징_연습() {
+        this.add_member();
+
+        PageRequest pageRequest = PageRequest.of(0, 10, Sort.by(Direction.DESC, "username"));
+        Page<Member> page = this.memberRepository.findByAge(10, pageRequest);
+
+        // 조회된 데이터
+        List<Member> content = page.getContent();
+        assertThat(content.size()).isEqualTo(10);
+        assertThat(page.getTotalElements()).isEqualTo(20);
+        assertThat(page.getNumber()).isEqualTo(0);
+        assertThat(page.getTotalPages()).isEqualTo(2);
+        assertThat(page.isFirst()).isTrue();
+        assertThat(page.hasNext()).isTrue();
+    }
+
+    private void add_member() {
+        for (int i = 0; i < 20; i++) {
+            this.memberRepository.save(new Member("member" + i, 10));
+        }
     }
 }

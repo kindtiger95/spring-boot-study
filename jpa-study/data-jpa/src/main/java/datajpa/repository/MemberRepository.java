@@ -3,13 +3,17 @@ package datajpa.repository;
 import datajpa.entity.Member;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
+
     // 다음은 2개다 된다. -> Optional을 사용하는 것이 더 나음.
     Optional<Member> findById(Long id);
+
     Member findNoOptionalById(Long id);
 
     List<Member> findByUsernameAndAgeGreaterThan(String username, int age);
@@ -23,6 +27,10 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     List<Member> findByNames(@Param("names") List<String> names);
 
     // 스프링 데이터 JPA 페이징 예시
+    Page<Member> findByAge(int age, Pageable pageable);
 
-
+    // 만약 join이 걸려있다면 Count 함수 따로 써줘야 한다.
+    @Query(value = "SELECT m FROM Member AS m",
+        countQuery = "SELECT COUNT(m.username) FROM Member AS m")
+    Page<Member> findMemberAllCountBy(Pageable pageable);
 }
