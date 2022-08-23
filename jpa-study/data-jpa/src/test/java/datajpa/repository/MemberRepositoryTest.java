@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -102,6 +103,29 @@ class MemberRepositoryTest {
         assertThat(page.getTotalPages()).isEqualTo(2);
         assertThat(page.isFirst()).isTrue();
         assertThat(page.hasNext()).isTrue();
+    }
+
+    @Test
+    public void 벌크_쿼리() {
+        this.memberRepository.save(new Member("member1", 10));
+        this.memberRepository.save(new Member("member2", 19));
+        this.memberRepository.save(new Member("member3", 20));
+        this.memberRepository.save(new Member("member4", 21));
+        this.memberRepository.save(new Member("member5", 40));
+
+        int resultCount = this.memberRepository.bulkAgePlus(20);
+        assertThat(resultCount).isEqualTo(3);
+    }
+
+    @Test
+    @Rollback(value = false)
+    public void Auditing_테스트() {
+        this.memberRepository.save(new Member("member1", 16));
+        this.memberRepository.save(new Member("member2", 10));
+        this.memberRepository.save(new Member("member3", 12));
+        this.memberRepository.save(new Member("member4", 7));
+        this.memberRepository.save(new Member("member5", 13));
+        this.memberRepository.save(new Member("member6", 5));
     }
 
     private void add_member() {

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -33,4 +34,10 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "SELECT m FROM Member AS m",
         countQuery = "SELECT COUNT(m.username) FROM Member AS m")
     Page<Member> findMemberAllCountBy(Pageable pageable);
+
+    // 벌크 쿼리일 때는 Modifying을 꼭 써줘야 한다.
+    // 다시 조회해야 할 때는 @Modifying(clearAutomatically = true)로 해줘야 한다.
+    @Modifying
+    @Query("UPDATE Member AS m SET m.age = m.age + 1 WHERE m.age >= :age")
+    int bulkAgePlus(@Param("age") int age);
 }
