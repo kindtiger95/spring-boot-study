@@ -8,6 +8,8 @@ import practice.domain.Item;
 import practice.domain.Member;
 import practice.domain.Order;
 import practice.domain.OrderSearch;
+import practice.dto.OrderQueryDto;
+import practice.repository.OrderQueryRepository;
 import practice.service.ItemService;
 import practice.service.MemberService;
 import practice.service.OrderService;
@@ -20,6 +22,7 @@ public class OrderController {
     private final OrderService orderService;
     private final MemberService memberService;
     private final ItemService itemService;
+    private final OrderQueryRepository orderQueryRepository;
 
     @GetMapping("/order")
     public String createForm(Model model) {
@@ -40,8 +43,7 @@ public class OrderController {
     }
 
     @GetMapping(value = "/orders")
-    public String orderList(@ModelAttribute("orderSearch") OrderSearch
-                                    orderSearch, Model model) {
+    public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
         List<Order> orders = this.orderService.findOrders(orderSearch);
         model.addAttribute("orders", orders);
         return "order/orderList";
@@ -51,5 +53,15 @@ public class OrderController {
     public String cancelOrder(@PathVariable("orderId") Long orderId) {
         this.orderService.cancelOrder(orderId);
         return "redirect:/orders";
+    }
+
+    @GetMapping(value = "/api/v4/orders")
+    public @ResponseBody List<OrderQueryDto> ordersV4() {
+        return orderQueryRepository.findOrderQueryDtos();
+    }
+
+    @GetMapping(value = "/api/v5/orders")
+    public @ResponseBody List<OrderQueryDto> ordersV5() {
+        return orderQueryRepository.findAllByDto_optimization();
     }
 }
