@@ -6,8 +6,10 @@ import static practice.querydsl.entity.QTeam.team;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.assertj.core.api.Assertions;
@@ -18,6 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import practice.querydsl.dto.MemberDto;
 import practice.querydsl.dto.QMemberDto;
+import practice.querydsl.dto.QTeamDto;
+import practice.querydsl.dto.TeamDto;
 import practice.querydsl.entity.Member;
 import practice.querydsl.entity.Team;
 
@@ -192,6 +196,37 @@ public class BasicTest {
 
         List<Member> members = searchMember1(usernameParam, ageParam);
         Assertions.assertThat(members.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void in_query_테스트() {
+        Team teamA = new Team("teamA");
+        Team teamB = new Team("teamB");
+        em.persist(teamA);
+        em.persist(teamB);
+        Member member1 = new Member("member1", 10, teamA);
+        Member member2 = new Member("member2", 20, teamA);
+        Member member3 = new Member("member3", 30, teamB);
+        Member member4 = new Member("member4", 40, teamB);
+        em.persist(member1);
+        em.persist(member2);
+        em.persist(member3);
+        em.persist(member4);
+
+        List<TeamDto> teamDtos = jpaQueryFactory.select(new QTeamDto(team.id, team.name))
+                                             .from(team)
+                                             .fetch();
+
+        List<Long> teamIdList = teamDtos.stream()
+                                        .map(TeamDto::getTeamId)
+                                        .collect(Collectors.toList());
+
+        List<MemberDto> memberDtos = jpaQueryFactory.select(new QMemberDto(member.username, member.age))
+                                                    .from(member)
+                                                    .where(member.team.id.in(teamIdList))
+                                                    .fetch();
+        
+
     }
 
     private List<Member> searchMember1(String usernameCond, Integer ageCond) {
