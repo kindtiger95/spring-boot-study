@@ -41,4 +41,5 @@ class MemberRepositoryTest {
         Member member11 = memberRepository.findByUsername("member1").get();
         Assertions.assertThat(result).extracting("username").containsExactly("member4");
     }
+
 }
