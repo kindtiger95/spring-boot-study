@@ -1,6 +1,6 @@
-package springbasicpractice.repositories;
+package springbasicpractice.repository;
 
-import springbasicpractice.commons.Member;
+import springbasicpractice.common.enumeration.Member;
 
 public interface MemberRepository {
     void save(Member member);

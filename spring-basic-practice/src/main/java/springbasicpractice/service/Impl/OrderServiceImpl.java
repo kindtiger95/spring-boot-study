@@ -1,14 +1,13 @@
-package springbasicpractice.services.Impl;
+package springbasicpractice.service.Impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import springbasicpractice.commons.Member;
-import springbasicpractice.commons.Order;
-import springbasicpractice.repositories.MemberRepository;
-import springbasicpractice.services.OrderService;
-import springbasicpractice.services.discount.DiscountPolicy;
+import springbasicpractice.common.enumeration.Member;
+import springbasicpractice.common.enumeration.Order;
+import springbasicpractice.repository.MemberRepository;
+import springbasicpractice.service.OrderService;
+import springbasicpractice.service.discount.DiscountPolicy;
 
 @Primary
 @Component

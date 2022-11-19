@@ -1,9 +1,9 @@
-package springbasicpractice.services;
+package springbasicpractice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
-import springbasicpractice.controllers.MyLogger;
+import springbasicpractice.controller.MyLogger;
 
 @Service
 @RequiredArgsConstructor

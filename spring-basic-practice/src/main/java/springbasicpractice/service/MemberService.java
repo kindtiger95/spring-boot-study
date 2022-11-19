@@ -1,6 +1,6 @@
-package springbasicpractice.services;
+package springbasicpractice.service;
 
-import springbasicpractice.commons.Member;
+import springbasicpractice.common.enumeration.Member;
 
 public interface MemberService {
     void join(Member member);

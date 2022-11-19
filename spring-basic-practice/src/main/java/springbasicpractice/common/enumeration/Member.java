@@ -1,4 +1,4 @@
-package springbasicpractice.commons;
+package springbasicpractice.common.enumeration;
 
 public class Member {
     private Long id;

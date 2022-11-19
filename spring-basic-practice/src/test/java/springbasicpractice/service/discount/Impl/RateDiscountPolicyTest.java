@@ -1,12 +1,10 @@
-package springbasicpractice.services.discount.Impl;
+package springbasicpractice.service.discount.Impl;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import springbasicpractice.commons.Grade;
-import springbasicpractice.commons.Member;
-
-import static org.junit.jupiter.api.Assertions.*;
+import springbasicpractice.common.enumeration.Grade;
+import springbasicpractice.common.enumeration.Member;
 
 class RateDiscountPolicyTest {
 

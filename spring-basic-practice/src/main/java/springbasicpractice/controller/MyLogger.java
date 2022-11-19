@@ -1,6 +1,5 @@
-package springbasicpractice.controllers;
+package springbasicpractice.controller;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

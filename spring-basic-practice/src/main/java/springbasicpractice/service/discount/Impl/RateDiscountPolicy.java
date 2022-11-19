@@ -1,10 +1,10 @@
-package springbasicpractice.services.discount.Impl;
+package springbasicpractice.service.discount.Impl;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-import springbasicpractice.commons.Grade;
-import springbasicpractice.commons.Member;
-import springbasicpractice.services.discount.DiscountPolicy;
+import springbasicpractice.common.enumeration.Grade;
+import springbasicpractice.common.enumeration.Member;
+import springbasicpractice.service.discount.DiscountPolicy;
 
 @Primary
 @Component

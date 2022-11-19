@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import springbasicpractice.services.MemberService;
+import springbasicpractice.service.MemberService;
 
 public class AutoAppConfigTest {
     @Test

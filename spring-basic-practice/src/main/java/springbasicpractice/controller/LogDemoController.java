@@ -1,11 +1,11 @@
-package springbasicpractice.controllers;
+package springbasicpractice.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import springbasicpractice.services.LogDemoService;
+import springbasicpractice.service.LogDemoService;
 
 import javax.servlet.http.HttpServletRequest;
 

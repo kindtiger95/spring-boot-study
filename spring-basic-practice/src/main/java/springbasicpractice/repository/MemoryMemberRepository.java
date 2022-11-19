@@ -1,7 +1,7 @@
-package springbasicpractice.repositories;
+package springbasicpractice.repository;
 
 import org.springframework.stereotype.Component;
-import springbasicpractice.commons.Member;
+import springbasicpractice.common.enumeration.Member;
 
 import java.util.HashMap;
 import java.util.Map;

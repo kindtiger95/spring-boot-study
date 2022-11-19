@@ -1,10 +1,10 @@
-package springbasicpractice.services.Impl;
+package springbasicpractice.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import springbasicpractice.commons.Member;
-import springbasicpractice.repositories.MemberRepository;
-import springbasicpractice.services.MemberService;
+import springbasicpractice.common.enumeration.Member;
+import springbasicpractice.repository.MemberRepository;
+import springbasicpractice.service.MemberService;
 
 @Component
 public class MemberServiceImpl implements MemberService {

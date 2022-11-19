@@ -1,12 +1,11 @@
 package springbasicpractice;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import springbasicpractice.commons.Grade;
-import springbasicpractice.commons.Member;
-import springbasicpractice.services.discount.DiscountPolicy;
+import springbasicpractice.common.enumeration.Grade;
+import springbasicpractice.common.enumeration.Member;
+import springbasicpractice.service.discount.DiscountPolicy;
 
 import java.util.List;
 import java.util.Map;
